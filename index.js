@@ -1,6 +1,9 @@
 const { Client, Intents, Collection, MessageEmbed } = require('discord.js'); //v13
 const { getVoiceConnection } = require("@discordjs/voice");
 
+require('dotenv').config();
+var token = process.env.token;
+
 const client = new Client(clientSettingsObject());
 // Slash Commands deployment settings
 client.deploySlash = {
@@ -21,7 +24,7 @@ require("./util/musicUtils.js")(client);
 // load handler
 require("./util/handler.js")(client);
 
-client.login(client.config.token);
+client.login(token);
 
 function clientSettingsObject() {
   return {
